@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拾艺 - 艺术家中心</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style type="text/css">
+        @import"imartist.css";
+    </style>
+</head>
+<body>
+    <!-- 主导航栏 -->
+    <nav class="studio-nav">
+        <div class="studio-brand">
+            <span class="logo">拾艺</span>
+            <span class="divider"></span>
+            <span class="subtitle">艺术家中心</span>
+        </div>
+        <div class="studio-menu">
+            <a href="main.html">
+                <i class="fas fa-home"></i>
+                首页
+            </a>
+            <a href="#">
+                <i class="fas fa-paint-brush"></i>
+                作品管理
+            </a>
+            <a href="#">
+                <i class="fas fa-shopping-bag"></i>
+                需求接单
+            </a>
+            <a href="#">
+                <i class="fas fa-chart-line"></i>
+                销售数据
+            </a>
+            <a href="#">
+                <i class="fas fa-bell"></i>
+                通知
+            </a>
+            <a href="#">
+                <i class="fas fa-user"></i>
+                个人中心
+            </a>
+            <a href="#">
+                <i class="fas fa-graduation-cap"></i>
+                创作者学院
+            </a>
+        </div>
+    </nav>
+<!-- 在导航栏和底部之间添加以下内容 -->
+<main class="dashboard-container">
+    <div class="dashboard-grid">
+        <!-- 左侧收益概览 -->
+<!-- 收益概览卡片修正版 -->
+        <div class="dashboard-card">
+            <div class="card-header">
+            <h2>收益概览</h2>
+            <div class="chart-toggle">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            </div>
+            <div class="data-panel">
+            <!-- 数据列表保持不变 -->
+            <div class="data-list">
+                <div class="data-item">
+                    <div class="label">累计收益</div>
+                    <div class="value">¥12,345.67</div>
+                </div>
+                <div class="data-item">
+                    <div class="label">成交次数</div>
+                    <div class="value">256次</div>
+                </div>
+                <div class="data-item">
+                    <div class="label">未结算</div>
+                    <div class="value">¥3,456.89</div>
+                </div>
+            </div>
+            
+            <!-- 修正后的折线图容器 -->
+            <div class="chart-container">
+                <svg viewBox="0 0 400 150" width="100%" height="100%">
+                <!-- 坐标轴 -->
+                <path class="axis-x" d="M10,130 L390,130" stroke="#ddd"/>
+                <path class="axis-y" d="M10,130 L10,30" stroke="#ddd"/>
+                
+                <!-- 数据点容器 -->
+                <g class="data-points">
+                    <!-- 动态生成6个月数据点 -->
+                    <circle class="data-point" cx="70" cy="100" r="4" data-value="8200"/>
+                    <circle class="data-point" cx="140" cy="70" r="4" data-value="6800"/>
+                    <circle class="data-point" cx="210" cy="120" r="4" data-value="9500"/>
+                    <circle class="data-point" cx="280" cy="90" r="4" data-value="8300"/>
+                    <circle class="data-point" cx="350" cy="60" r="4" data-value="10200"/>
+                    <circle class="data-point" cx="420" cy="110" r="4" data-value="8900"/>
+                </g>
+                
+                <!-- 折线路径 -->
+                <path class="chart-line" d="M70,100 L140,70 L210,120 L280,90 L350,60 L420,110" fill="none" stroke="#7B61FF"/>
+                
+                <!-- 月份标签 -->
+                <text class="month-label" x="70" y="145">2023.01</text>
+                <text class="month-label" x="140" y="145">2023.03</text>
+                <text class="month-label" x="210" y="145">2023.05</text>
+                <text class="month-label" x="280" y="145">2023.07</text>
+                <text class="month-label" x="350" y="145">2023.09</text>
+                <text class="month-label" x="420" y="145">2023.11</text>
+                
+                <!-- 金额标签 -->
+                <text class="value-label" x="70" y="25">$8,200</text>
+                <text class="value-label" x="140" y="25">$6,800</text>
+                <text class="month-label" x="210" y="25">$9,500</text>
+                <text class="month-label" x="280" y="25">$8,300</text>
+                <text class="month-label" x="420" y="25">$8,900</text>
+                </svg>
+            </div>
+            </div>
+        </div>
+        
+
+        <!-- 右侧作品管理 -->
+        <div class="dashboard-card">
+            <div class="upload-section">
+                <button class="upload-btn">
+                    <i class="fas fa-upload"></i>
+                    上传作品
+                </button>
+                <div class="upload-progress">
+                    <div class="progress-bar" style="--progress: 75%"></div>
+                </div>
+            </div>
+            <div class="card-header">
+                <h2>作品概览</h2>
+            </div>
+            <div class="data-list">
+                <div class="data-item">
+                    <div class="label">已上架</div>
+                    <div class="value">50件</div>
+                </div>
+                <div class="data-item">
+                    <div class="label">审核中</div>
+                    <div class="value">10件</div>
+                </div>
+                <div class="data-item">
+                    <div class="label">待提交</div>
+                    <div class="value">5件</div>
+                </div>
+            </div>
+        </div>
+        <!-- 在现有收益概览和作品概览卡片下方添加以下内容 -->
+        <div class="dashboard-card">
+            <div class="card-header">
+                <h2>灵感激发器</h2>
+            </div>
+            <div class="data-list">
+                <div class="data-item inspiration-item">
+                    <div class="label">热门风格关键词</div>
+                    <div class="value">
+                        <span class="trend-item">新中式极简</span>
+                        <span class="trend-item">赛博水墨</span>
+                        <span class="trend-item">3D国潮</span>
+                    </div>
+                </div>
+                <div class="data-item inspiration-item">
+                    <div class="label">热门应用场景</div>
+                    <div class="value">
+                        <span class="trend-item">元宇宙展厅</span>
+                        <span class="trend-item">品牌联名包装</span>
+                        <span class="trend-item">数字藏品系列</span>
+                    </div>
+                </div>
+                <div class="data-item inspiration-item">
+                    <div class="label">畅销艺术家</div>
+                    <div class="value">
+                        <span class="trend-item">水墨先锋：陈墨</span>
+                        <span class="trend-item">数字艺术：林深见鹿</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-card">
+            <div class="card-header">
+                <h2>待处理任务</h2>
+            </div>
+            <div class="data-list">
+                <div class="data-item task-item">
+                    <div class="label">待处理客户</div>
+                    <div class="value">
+                        <span class="task-count">12个</span>
+                        <div class="task-meta">
+                            <span class="urgency">紧急</span>
+                            <span class="deadline">截止24h</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="data-item task-item">
+                    <div class="label">待提交材料</div>
+                    <div class="value">
+                        <span class="task-count">5份</span>
+                        <div class="task-meta">
+                            <span class="status">待审核</span>
+                            <span class="category">数字版权文件</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="data-item task-item">
+                    <div class="label">待签署合同</div>
+                    <div class="value">
+                        <span class="task-count">3份</span>
+                        <div class="task-meta">
+                            <span class="status">待确认</span>
+                            <span class="category">海外授权协议</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 课程模块完整实现 -->
+        <div class="dashboard-full">
+            <div class="dashboard-card course-card full-width">
+                <div class="card-header">
+                    <h2>好课速递</h2>
+                </div>
+                <div class="course-grid" style="--cols: 3">
+                    <!-- 课程卡片1 -->
+                    <a href="#" class="course-item">
+                        <img src="course1.jpg" alt="课程封面1">
+                        <div class="course-overlay">
+                            <h3>职业插画师养成班</h3>
+                            <p>￥1999 · 4.9分</p>
+                        </div>
+                    </a>
+                    <!-- 课程卡片2 -->
+                    <a href="#" class="course-item">
+                        <img src="course2.jpg" alt="课程封面2">
+                        <div class="course-overlay">
+                            <h3>5个套路 提高图库拍摄效率</h3>
+                            <p>￥999 · 4.8分</p>
+                        </div>
+                    </a>
+                    <!-- 课程卡片3 -->
+                    <a href="#" class="course-item">
+                        <img src="course3.jpg" alt="课程封面3">
+                        <div class="course-overlay">
+                            <h3>供稿指南 做好这三步 不愁没销路</h3>
+                            <p>￥1299 · 4.7分</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</main>
+
+
+
+    <!-- 添加在body底部之前 -->
+<footer <!-- 底部主内容 -->
+    <div class="footer-container">
+       <!-- 关于拾艺 -->
+       <div class="footer-column">
+           <h4>关于拾艺</h4>
+           <ul>
+               <li><a href="/about">关于我们</a></li>
+               <li><a href="/license">授权协议</a></li>
+               <li><a href="/privacy">隐私政策</a></li>
+           </ul>
+       </div>
+   
+       <!-- 帮助中心 -->
+       <div class="footer-column">
+           <h4>常见问题</h4>
+           <ul>
+               <li><a href="/faq">授权/版权</a></li>
+               <li><a href="/faq">购买/支付</a></li>
+               <li><a href="/faq">下载问题</a></li>
+               <li><a href="/faq">退款/退货</a></li>
+               <li><a href="/faq">流程相关</a></li>
+               <li><a href="/faq">关于套餐</a></li>
+               <li><a href="/faq">关于账户</a></li>
+               <li><a href="/help">帮助中心</a></li>
+           </ul>
+       </div>
+   
+       <!-- 联系方式 -->
+       <div class="footer-column">
+           <h4>联系我们</h4>
+           <ul>
+               <li><a href="javascript:void(0)" class="contact-item">
+                   <i class="fas fa-wechat"></i> 微信咨询
+               </a></li>
+               <li><a href="tel:+86-400-123-4567" class="contact-item">
+                   <i class="fas fa-phone"></i> 电话咨询 400-123-4567
+               </a></li>
+           </ul>
+       </div>
+   
+       <!-- 关注我们 -->
+       <div class="footer-column">
+           <h4>关注我们</h4>
+           <ul>
+               <li><a href="/rss" class="social-link">
+                   <i class="fas fa-rss"></i> RSS订阅
+               </a></li>
+               <li><a href="/newsletter" class="social-link">
+                   <i class="fas fa-envelope"></i> 电子邮件
+               </a></li>
+           </ul>
+       </div>
+   </div>
+   
+   <!-- 悬浮操作栏 -->
+   <div class="floating-actions">
+       <a href="/ai-support" class="action-btn ai-support">
+           <i class="fas fa-robot"></i> AI客服
+       </a>
+       <a href="/feedback" class="action-btn feedback">
+           <i class="fas fa-comments"></i> 问题反馈
+       </a>
+       <a href="#" class="action-btn scroll-top">
+           <i class="fas fa-chevron-up"></i>
+       </a>
+   </div>
+   
+   <!-- 底部版权 -->
+   <div class="footer-bottom">
+       <p>© 2024 SHEE Art Platform. All rights reserved.</p>
+       <div class="policy-links">
+           <a href="/terms">用户协议</a> | 
+           <a href="/privacy">隐私政策</a> | 
+           <a href="/sitemap">网站地图</a>
+       </div>
+   </div>
+
+
+    
+    
+</body>
+</html>

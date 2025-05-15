@@ -1,0 +1,872 @@
+:root {
+    --primary-500: #FF69B4; /* 品牌粉色 */
+    --secondary-400: #81C784;
+    --neutral-100: #FFFFFF;
+    --neutral-300: #F5F5F5;
+    --neutral-500: #E9ECEF;
+    --text-primary: #2D3748;
+    --text-secondary: #4A5568;
+}
+
+/* 基础重置 */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+}
+
+/* 导航栏核心样式 */
+.studio-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* 新增阴影增强立体感 */
+    border-radius: 16px;
+    background: white;
+    position: relative;
+    min-height: 80px; /* 新增最小高度 */
+    z-index: 1000;
+}
+.studio-nav i {
+    font-size: 1.4rem; /* 原为1.2rem，增大图标 */
+    margin-right: 0.8rem;
+  }
+  .studio-nav .fas {
+    color: var(--primary-500);
+  }
+/* 底部装饰线 */
+.studio-nav::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, 
+      var(--primary-500) 0%,
+      var(--primary-400) 50%,
+      var(--primary-300) 100%);
+    border-radius: 2px;
+  }
+  
+.studio-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.studio-brand .logo {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #FF69B4;
+    letter-spacing: 1px;
+}
+
+.studio-brand .divider {
+    width: 1.2px;
+    height: 24px;
+    background: #FF69B4;
+}
+
+.studio-menu {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.studio-menu a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 24px;
+    font-size: 1.2rem; /* 原为1rem，增大字体 */
+    color: #2D3748;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+
+
+.studio-menu a:hover {
+    background: rgba(255,90,153,0.1);
+    transform: translateY(-1px);
+  }
+.studio-menu a.active {
+    background: var(--primary-600);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(255,90,153,0.2);
+  }
+.studio-menu a::after {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #FF69B4;
+    transition: width 0.3s;
+}
+
+.studio-menu a:hover::after {
+    width: 100%;
+}
+
+
+
+/* 新增光标反馈动画 */
+@keyframes hoverScale {
+    to {
+        transform: translateY(-2px) scale(1.02);
+    }
+}
+
+.studio-menu a:hover {
+    animation: hoverScale 0.3s;
+}
+
+
+/* 待处理任务 */
+.tasks-section {
+    background: var(--neutral-100);
+    border-radius: 16px;
+    padding: 32px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 24px;
+    background: var(--neutral-300);
+    border-radius: 12px;
+    margin-bottom: 24px;
+    transition: transform 0.2s;
+}
+
+.task-item:hover {
+    transform: translateY(-2px);
+}
+
+.task-item i {
+    font-size: 24px;
+    color: var(--primary-500);
+}
+
+.task-item.urgent i {
+    color: #EF4444;
+}
+
+.progress-bar {
+    height: 4px;
+    background: var(--neutral-500);
+    border-radius: 2px;
+    margin-top: 12px;
+}
+
+.progress-bar::after {
+    content: "";
+    display: block;
+    width: 65%;
+    height: 100%;
+    background: var(--primary-500);
+    border-radius: 2px;
+}
+
+.meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+
+/* 添加到现有CSS中 */
+.dashboard-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.dashboard-card {
+    background: var(--neutral-300);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.3rem;
+    font-size: larger;
+}
+.chart-container {
+    height: 200px;
+    margin-top: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .chart-container svg {
+    font-family: var(--font-family);
+  }
+
+.chart-toggle {
+    background: var(--primary-500);
+    color: white;
+    border-radius: 100%;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.chart-toggle:hover {
+    transform: scale(1.1);
+}
+
+.axis-x, .axis-y {
+    stroke-width: 1;
+    stroke-dasharray: 2 2;
+  }
+  
+  .data-points {
+    transition: opacity 0.3s ease;
+  }
+  
+  .data-point {
+    fill: #fff;
+    stroke: #7B61FF;
+    stroke-width: 2;
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .data-point:hover {
+    transform: scale(1.5);
+    cursor: pointer;
+  }
+  
+.data-panel {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    gap: 1.5rem;
+}
+
+.data-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.data-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+.data-item:hover {
+    transform: translateY(-2px);
+}
+
+.data-item .label {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+}
+
+.data-item .value {
+    color: var(--primary-500);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.line-chart {
+    position: relative;
+    height: 100px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.line-chart::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--primary-500);
+    transform: translateX(-100%);
+    animation: drawLine 1s ease forwards;
+}
+
+@keyframes drawLine {
+    to {
+        transform: translateX(0);
+    }
+}
+
+
+
+.chart-legend {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+}
+
+.upload-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.upload-btn {
+    background: var(--primary-500);
+    color: white;
+    border: none;
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.upload-btn:hover {
+    transform: translateY(-2px);
+    background: #ff5a9d;
+}
+
+.upload-progress {
+    height: 4px;
+    background: var(--neutral-500);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: var(--primary-500);
+    width: var(--progress);
+    animation: progressAnim 1s ease forwards;
+}
+
+@keyframes progressAnim {
+    from { width: 0; }
+    to { width: var(--progress); }
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .dashboard-card {
+        margin-bottom: 2rem;
+    }
+    
+    .data-item {
+        padding: 0.75rem;
+    }
+    
+    .upload-btn {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+    }
+}
+
+
+
+/* 尾部 */
+.studio-footer {
+    background: var(--neutral-100);
+    padding: 32px 32px;
+    border-top: 1px solid var(--neutral-500);
+    margin-top: 40px;
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 24px;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--primary-500);
+}
+
+.social-media {
+    display: flex;
+    gap: 24px;
+    margin-top: 24px;
+    justify-content: flex-end;
+}
+
+.social-media a {
+    color: var(--text-secondary);
+    transition: color 0.3s;
+}
+
+.social-media a:hover {
+    color: var(--primary-500);
+}
+
+        /* 添加到现有CSS中 */
+        .footer-container {
+            background: #f8f9fa;
+            padding: 3rem 0;
+            margin-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+            max-width: 120000px;
+            margin: 0 auto;
+        }
+
+        .footer-column {
+            flex: 1 1 20%;
+            min-width: 200px;
+            text-align: left;
+        }
+
+        .footer-column h4 {
+            color: #2d3436;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            margin-left: 50px;
+        }
+
+        .footer-column h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 40px;
+            height: 3px;
+            background: #ff7676;
+            border-radius: 2px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            margin-left: 50px;
+            padding: 0;
+        }
+
+        .footer-column li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-column a {
+            color: #636e72;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: #ff7676;
+        }
+
+        /* 悬浮操作栏样式 */
+        .floating-actions {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .action-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255, 118, 118, 0.1);
+            color: #ff7676;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .action-btn:hover {
+            background: #ff7676;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .action-btn i {
+            font-size: 1.4rem;
+        }
+
+        /* 回到顶部按钮特殊样式 */
+        .scroll-top {
+            width: 50px;
+            height: 50px;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-column {
+                flex: none;
+                width: 100%;
+                margin-bottom: 2rem;
+            }
+
+            .floating-actions {
+                right: 15px;
+                bottom: 15px;
+            }
+
+            .action-btn {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        /* 新增底部版权样式 */
+        .footer-bottom {
+            background: #2d3436;
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .footer-bottom p {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .policy-links {
+            margin-top: 1rem;
+            display: inline-block;
+        }
+
+        .policy-links a {
+            color: #ff7676;
+            margin: 0 0.5rem;
+        }
+
+        .policy-links a:hover {
+            text-decoration: underline;
+        }
+
+
+
+
+  
+  .tooltip {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 4px;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .tooltip-title {
+    color: var(--primary-500);
+    font-weight: 500;
+  }
+  
+/* 添加到现有CSS中 */
+.inspiration-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--neutral-100);
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+.inspiration-item:hover {
+    transform: translateY(-2px);
+}
+
+.trend-item {
+    display: inline-block;
+    padding: 4px 8px;
+    background: rgba(123, 97, 255, 0.1);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: var(--primary-500);
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--neutral-100);
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+.task-item:hover {
+    transform: translateY(-2px);
+}
+
+.task-count {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary-500);
+}
+
+.task-meta {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.urgency {
+    background: #EF4444;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.status {
+    background: #4CAF50;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.deadline, .category {
+    color: #2D3748;
+}
+/* 关键CSS修改 */
+.dashboard-grid {
+    display: grid;
+    gap: 1.5rem;
+    padding: 2rem 0;
+}
+
+
+/* 新增全宽容器样式 */
+.dashboard-full {
+    display: grid;
+    grid-template-columns: 1fr; /* 强制单列全宽 */
+    row-gap: 1.5rem;
+    padding: 0 1rem;
+}
+
+/* 修正课程卡片容器 */
+.course-card.full-width {
+    width: 200%;
+    grid-template-columns: 1fr;
+    margin: 0;
+    box-shadow: var(--shadow-300);
+    border-radius: 12px;
+}
+/* 新增响应式课程网格 */
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--cols, 3), 1fr);
+    gap: 24px;
+    padding: 20px;
+}
+
+/* 课程卡片样式 */
+.course-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    min-height: 300px;
+}
+
+.course-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+
+/* 图片处理 */
+.course-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* 课程信息层 */
+.course-overlay {
+    padding: 16px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.course-overlay h3 {
+    margin: 0 0 12px 0;
+    color: #333;
+    font-size: 1.1em;
+}
+
+.course-overlay p {
+    color: #666;
+    font-size: 0.9em;
+}
+
+/* 响应式设计 */
+@media (max-width: 1200px) {
+    .course-grid {
+        --cols: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .course-grid {
+        --cols: 1;
+    }
+    
+    .course-item {
+        min-height: 400px;
+    }
+    
+    .course-item img {
+        height: 300px;
+    }
+}
+
+
+
+
+
+
+
+
+/* 确保容器最小高度 */
+.course-card {
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .task-meta {
+        display: none;
+    }
+
+    .trend-item {
+        display: block;
+        margin: 2px 0;
+    }
+}
+
+        
+/* 响应式设计 */
+@media (max-width: 1200px) {
+    .dashboard-grid,
+    .middle-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .studio-nav {
+        grid-template-columns: 1fr;
+        row-gap: 16px;
+    }
+    
+    .studio-menu,
+    .studio-tools {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .data-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .course-card img {
+        width: 120px;
+    }
+    
+    .artist-card img {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .upload-btn {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+    .studio-nav {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+    
+    .studio-brand {
+        order: -1;
+        margin-bottom: 1rem;
+    }
+    
+    .studio-menu {
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: flex-start;
+    }
+    
+    .studio-menu a {
+        padding: 12px 16px;
+        text-align: center;
+    }
+    
+    .studio-nav {
+        border-radius: 8px;
+    }
+}
